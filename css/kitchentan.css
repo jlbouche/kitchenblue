@@ -127,12 +127,12 @@
   
   .textfield {
     margin: auto;
-    width: 60%;
+    width: 40%;
   }
   
   #query-form {
     margin: auto;
-    max-width: 85%;
+    max-width: 65%;
   }
   
   /* FOOTER
