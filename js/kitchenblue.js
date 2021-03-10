@@ -18,7 +18,7 @@ var defunctDomains = [
 
 function isADefunctSite(sampleSite) {
 
-    var found = false;
+    let found = false;
   
     defunctDomains.forEach(
       function (item, index) {
@@ -35,8 +35,8 @@ function isADefunctSite(sampleSite) {
 
 function formatSearchResults(jsonResults) {
 
-    var jsonObject = JSON.parse(jsonResults);
-    var siteCount = 0;
+    let jsonObject = JSON.parse(jsonResults);
+    let siteCount = 0;
   
     if (jsonObject.results.length == 0) { 
       setNotFoundMessages(); 
@@ -44,7 +44,7 @@ function formatSearchResults(jsonResults) {
     else { 
   
       $("#search-results-heading").text("Search Results");
-      var formatedText = "";
+      let formatedText = "";
   
       jsonObject.results.forEach(
         function(item, index) {
@@ -52,7 +52,7 @@ function formatSearchResults(jsonResults) {
           if (isADefunctSite(item.href)) { return; } 
           siteCount++; 
   
-          var thumbnail = item.thumbnail;
+          let thumbnail = item.thumbnail;
           if (thumbnail == "") { thumbnail = "https://www.nicepng.com/png/detail/304-3040148_foodtong-chef-icon-epens-box-tentara-pelajar.png"; }  // Task 5, Part 3, display images/generic_dish.jpg if thumbnail is empty
   
           const href = item.href;
@@ -79,7 +79,7 @@ function formatSearchResults(jsonResults) {
 function performSearch(event) {
 
     // Variable to hold request
-    var request;
+    let request;
   
     // Prevent default posting of form - put here to work in case of errors
     event.preventDefault();
@@ -89,7 +89,7 @@ function performSearch(event) {
         request.abort();
     }
     // setup some local variables
-    var $form = $(this);
+    let $form = $(this);
   
     // disable the inputs and buttons for the duration of the request.
     setFormDisabledProps(true);
@@ -130,21 +130,21 @@ request.always(function () {
 // This function clears the search results and the heading "Search Results"
 
 function resetResults() {
-$("#search-results-heading").text("");
-$("#results").text("");
+  $("#search-results-heading").text("");
+  $("#results").text("");
 }
 
 // This function checks the user input fields for any unacceptable characters
 // and removes them if found
 
 function sanitizeInputs() {
-    var str = $("#ingredients").val();
-    str = str.replace(/[^a-zA-Z 0-9,]/gim, "");
+    let str = $("#ingredients").val();
+    str = str.replace(/[^a-zA-Z,]/gim, "");
     str = str.trim();
     $("#ingredients").val(str);
 
     str = $("#contains").val();
-    str = str.replace(/[^a-zA-Z 0-9]/gim, "");
+    str = str.replace(/[^a-zA-Z]/gim, "");
     str = str.trim();
     $("#contains").val(str);
 }
