@@ -106,9 +106,9 @@ function performSearch(event) {
     // Send the request
 
     request = $.ajax({
-        url: "https://cors-anywhere.herokuapp.com/" + "Task 3: Insert the resource URL between the quotes",
+        url: "https://skycors.skyroute66.com/?target=" + "http://www.recipepuppy.com/api/",
         type: "GET",
-        data: { i: $("#ingredients").val(), q: "Task 3: What should be here?? Hint: the id of the field is 'contains'. (remove the outter quotes)" }
+        data: { i: $("#ingredients").val(), q: $("#contains").val() }
     });
 
   // Callback handler for success
